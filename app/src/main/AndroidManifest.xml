@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TrabalhoNarak"
         tools:targetApi="31">
+        <activity android:name=".MainActivityEn"/>
+        <activity android:name=".MainActivity2"/>
+        <activity android:name=".MainActivity3"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">
