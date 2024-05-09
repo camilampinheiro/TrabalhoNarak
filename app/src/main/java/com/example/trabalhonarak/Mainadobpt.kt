@@ -2,12 +2,11 @@ package com.example.trabalhonarak
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
 import android.widget.ImageButton
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 
-class MainActivity2: AppCompatActivity() {
+class Mainadobpt: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -21,7 +20,7 @@ class MainActivity2: AppCompatActivity() {
 
     }
     fun TrocarTela2(){
-        var intent2 = Intent(this, MainActivity3::class.java)
+        var intent2 = Intent(this, Maineditobpt::class.java)
         startActivity(intent2)
     }
 }

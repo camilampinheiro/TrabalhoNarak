@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
     fun TrocarTela(){
-        var intent = Intent(this, MainActivityEn::class.java)
+        var intent = Intent(this, Mainadobpt::class.java)
         startActivity(intent)
     }
 }

@@ -12,12 +12,46 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TrabalhoNarak"
         tools:targetApi="31">
-        <activity android:name=".MainActivityEn"/>
-        <activity android:name=".MainActivity2"/>
-        <activity android:name=".MainActivity3"/>
+        <activity
+            android:name=".Mainen"
+            android:exported="false"/>
+        <activity
+            android:name=".Mainadobpt"
+            android:exported="false"/>
+        <activity
+            android:name=".Mainoben"
+            android:exported="false"/>
+        <activity
+            android:name=".Maineditobpt"
+            android:exported="false"/>
+        <activity
+            android:name=".Mainlogpt"
+            android:exported="false"/>
+        <activity
+            android:name=".Mainaddobpt"
+            android:exported="false"/>
+        <activity
+            android:name=".Mainadmpt"
+            android:exported="false"/>
+        <activity
+            android:name=".Mainexcobpt"
+            android:exported="false"/>
+        <activity
+            android:name=".Mainaddobpt2"
+            android:exported="false"/>
+        <activity
+            android:name=".Mainlogen"
+            android:exported="false"/>
+        <activity
+            android:name=".Mainadmen"
+            android:exported="false"/>
+        <activity
+            android:name=".Mainlobpt"
+            android:exported="false"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
