@@ -52,7 +52,7 @@
         android:layout_height="60dp"
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:srcCompat="@drawable/image_2"
-        tools:layout_editor_absoluteX="301dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/image_2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
