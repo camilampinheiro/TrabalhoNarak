@@ -8,7 +8,7 @@ class Mainaddobpt : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_mainlogpt)
+        setContentView(R.layout.activity_mainaddobpt)
 
     }
 }
