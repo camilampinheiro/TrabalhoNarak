@@ -17,6 +17,3 @@ class Maineditobpt : AppCompatActivity() {
         startActivity(intent)
     }
 }
-
-
-sxrgfctvbjkm

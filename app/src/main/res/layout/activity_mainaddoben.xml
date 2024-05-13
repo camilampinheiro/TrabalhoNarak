@@ -6,39 +6,39 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/imageView21"
+        android:id="@+id/imageView66"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/galeria_espaco_cultural_foto_14_1"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-133dp" />
+        tools:layout_editor_absoluteY="-119dp" />
 
     <ImageView
-        android:id="@+id/imageView22"
+        android:id="@+id/imageView67"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/galeria_espaco_cultural_foto_1_1"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="48dp" />
+        tools:layout_editor_absoluteY="61dp" />
 
     <ImageView
-        android:id="@+id/imageView23"
+        android:id="@+id/imageView68"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/galeria_espaco_cultural_foto_3_1"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="256dp" />
+        tools:layout_editor_absoluteY="247dp" />
 
     <ImageView
-        android:id="@+id/imageView24"
+        android:id="@+id/imageView69"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/galeria_espaco_cultural_foto_4_1"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="494dp" />
+        tools:layout_editor_absoluteY="476dp" />
 
     <ImageButton
-        android:id="@+id/imageButton4"
+        android:id="@+id/imageButton25"
         android:layout_width="80dp"
         android:layout_height="70dp"
         android:layout_marginStart="16dp"
@@ -47,64 +47,62 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/menu" />
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="90dp"
-        android:text="Adicionar Obra"
-        android:textColor="#FFFFFF"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageButton
-        android:id="@+id/imageButton5"
+        android:id="@+id/imageButton27"
         android:layout_width="95dp"
         android:layout_height="60dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/image_2" />
+        app:srcCompat="@drawable/image_1" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        android:text="Add Work"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView15"
+        app:srcCompat="@drawable/obra1" />
+
+    <EditText
+        android:id="@+id/editTextText10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Name of the work"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView3"
+        app:layout_constraintVertical_bias="0.737" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/button18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="132dp"
         android:backgroundTint="#FFFFFF"
-        android:text="Adicionar"
+        android:text="Add"
         android:textColor="#000000"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView54"
-        app:layout_constraintVertical_bias="0.887" />
-
-    <ImageView
-        android:id="@+id/imageView54"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
-        app:srcCompat="@drawable/obra1" />
-
-    <EditText
-        android:id="@+id/editTextText6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Nome da Obra"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView54"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView54"
-        app:layout_constraintVertical_bias="0.748" />
-
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -44,7 +44,7 @@
         android:layout_marginTop="90dp"
         android:text="Audioguias e Obras"
         android:textColor="#FFFFFF"
-        android:textSize="27sp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
