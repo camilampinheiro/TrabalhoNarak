@@ -49,6 +49,27 @@
             android:name=".Mainlobpt"
             android:exported="false"/>
         <activity
+            android:name=".Mainaddoben"
+            android:exported="false"/>
+        <activity
+            android:name=".Mainaddoben2"
+            android:exported="false"/>
+        <activity
+            android:name=".Mainadoben"
+            android:exported="false"/>
+        <activity
+            android:name=".Maineditoben"
+            android:exported="false"/>
+        <activity
+            android:name=".Maineditoben2"
+            android:exported="false"/>
+        <activity
+            android:name=".Maineditobpt2"
+            android:exported="false"/>
+        <activity
+            android:name=".Mainexoben"
+            android:exported="false"/>
+        <activity
             android:name=".MainActivity"
             android:exported="true">
 
