@@ -42,23 +42,22 @@ class Mainadmen : AppCompatActivity() {
     }
 
     private fun TrocarTela1() {
-        val intent1 = Intent(this, Mainlobpt::class.java)
+        val intent1 = Intent(this, Mainadmpt::class.java)
         startActivity(intent1)
     }
 
     private fun TrocarTela2() {
-        val intent1 = Intent(this, Mainadoben::class.java)
-        startActivity(intent1)
+        val intent2 = Intent(this, Mainaddoben::class.java)
+        startActivity(intent2)
     }
 
     private fun TrocarTela3() {
-        val intent1 = Intent(this, Mainexoben::class.java)
-        startActivity(intent1)
+        val intent3 = Intent(this, Mainexoben::class.java)
+        startActivity(intent3)
     }
 
     private fun TrocarTela4() {
-        val intent1 = Intent(this, Maineditoben::class.java)
-        startActivity(intent1)
-    }
+        val intent4 = Intent(this, Maineditoben::class.java)
+        startActivity(intent4)
     }
 }

@@ -5,38 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imageView78"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/galeria_espaco_cultural_foto_14_1"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-118dp" />
-
-    <ImageView
-        android:id="@+id/imageView79"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/galeria_espaco_cultural_foto_1_1"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="68dp" />
-
-    <ImageView
-        android:id="@+id/imageView80"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/galeria_espaco_cultural_foto_3_1"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="265dp" />
-
-    <ImageView
-        android:id="@+id/imageView81"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/galeria_espaco_cultural_foto_4_1"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="508dp" />
-
     <ImageButton
         android:id="@+id/imageButton31"
         android:layout_width="80dp"
@@ -63,7 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="90dp"
         android:text="Edit Work"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -98,7 +66,7 @@
         android:id="@+id/button22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#FFFFFF"
+        android:backgroundTint="#AAA7A7"
         android:text="Edit"
         android:textColor="#000000"
         android:textSize="25sp"

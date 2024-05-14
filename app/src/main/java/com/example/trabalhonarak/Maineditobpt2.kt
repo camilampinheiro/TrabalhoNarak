@@ -15,6 +15,7 @@ class Maineditobpt2 : AppCompatActivity() {
 
         val button = findViewById<ImageButton>(R.id.imageButton22)
         val button1 = findViewById<ImageButton>(R.id.imageButton21)
+        val button2 = findViewById<Button>(R.id.button17)
 
         button.setOnClickListener(){
             TrocarTela()
@@ -22,13 +23,20 @@ class Maineditobpt2 : AppCompatActivity() {
         button1.setOnClickListener(){
             TrocarTela1()
         }
+        button2.setOnClickListener(){
+            TrocarTela2()
+        }
     }
     private fun TrocarTela() {
-        val intent = Intent(this, MainActivity::class.java)
+        val intent = Intent(this, Maineditoben2::class.java)
         startActivity(intent)
     }
     private fun TrocarTela1() {
-        val intent = Intent(this, Mainadobpt::class.java)
-        startActivity(intent)
+        val intent1 = Intent(this, Mainpt::class.java)
+        startActivity(intent1)
+    }
+    private fun TrocarTela2() {
+        val intent2 = Intent(this, Mainadmpt::class.java)
+        startActivity(intent2)
     }
 }

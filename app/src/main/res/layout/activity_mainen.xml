@@ -5,45 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imageView29"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/galeria_espaco_cultural_foto_14_1"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-127dp" />
-
-    <ImageView
-        android:id="@+id/imageView30"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/galeria_espaco_cultural_foto_1_1"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="91dp" />
-
-    <ImageView
-        android:id="@+id/imageView31"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/galeria_espaco_cultural_foto_3_1"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="277dp" />
-
-    <ImageView
-        android:id="@+id/imageView32"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/galeria_espaco_cultural_foto_4_1"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="504dp" />
-
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="76dp"
         android:text="Help Systems"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="96dp"
-        android:backgroundTint="#FFFFFF"
+        android:backgroundTint="#AAA7A7"
         android:text="Audio guides and Works"
         android:textColor="#000000"
         android:textSize="25sp"
@@ -69,12 +37,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="16dp"
-        android:backgroundTint="#FFFFFF"
+        android:backgroundTint="#AAA7A7"
         android:text="ADM"
         android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/imageView32" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
         android:id="@+id/imageButton10"
@@ -83,6 +51,6 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView32"
+        app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/image_1" />
 </androidx.constraintlayout.widget.ConstraintLayout>

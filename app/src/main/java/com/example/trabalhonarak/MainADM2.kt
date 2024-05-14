@@ -12,6 +12,7 @@ class MainADM2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_mainaddobpt2)
+
         val desc = findViewById<EditText>(R.id.editTextText7)
         val add = findViewById<Button>(R.id.button15)
 

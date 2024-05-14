@@ -5,38 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imageView66"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/galeria_espaco_cultural_foto_14_1"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-119dp" />
-
-    <ImageView
-        android:id="@+id/imageView67"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/galeria_espaco_cultural_foto_1_1"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="61dp" />
-
-    <ImageView
-        android:id="@+id/imageView68"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/galeria_espaco_cultural_foto_3_1"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="247dp" />
-
-    <ImageView
-        android:id="@+id/imageView69"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/galeria_espaco_cultural_foto_4_1"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="476dp" />
-
     <ImageButton
         android:id="@+id/imageButton25"
         android:layout_width="80dp"
@@ -63,7 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="90dp"
         android:text="Add Work"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -97,7 +65,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="132dp"
-        android:backgroundTint="#FFFFFF"
+        android:backgroundTint="#AAA7A7"
         android:text="Add"
         android:textColor="#000000"
         android:textSize="25sp"

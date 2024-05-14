@@ -8,7 +8,7 @@ import android.widget.ImageButton
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 
-class Mainexcobpt : AppCompatActivity() {
+class Mainexobpt : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,15 +30,15 @@ class Mainexcobpt : AppCompatActivity() {
         }
     }
     private fun TrocarTela() {
-        val intent = Intent(this, Mainadobpt::class.java)
+        val intent = Intent(this, Mainadmpt::class.java)
         startActivity(intent)
     }
     private fun TrocarTela1() {
-        val intent = Intent(this, Mainoben::class.java)
+        val intent = Intent(this, Mainexoben::class.java)
         startActivity(intent)
     }
     private fun TrocarTela2() {
-        val intent = Intent(this, Mainadobpt::class.java)
+        val intent = Intent(this, Mainpt::class.java)
         startActivity(intent)
     }
 }

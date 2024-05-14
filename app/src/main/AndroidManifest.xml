@@ -34,7 +34,7 @@
             android:name=".Mainadmpt"
             android:exported="false"/>
         <activity
-            android:name=".Mainexcobpt"
+            android:name=".Mainexobpt"
             android:exported="false"/>
         <activity
             android:name=".Mainaddobpt2"
@@ -46,7 +46,7 @@
             android:name=".Mainadmen"
             android:exported="false"/>
         <activity
-            android:name=".Mainlobpt"
+            android:name=".Mainobpt"
             android:exported="false"/>
         <activity
             android:name=".Mainaddoben"
@@ -70,7 +70,7 @@
             android:name=".Mainexoben"
             android:exported="false"/>
         <activity
-            android:name=".MainActivity"
+            android:name=".Mainpt"
             android:exported="true">
 
             <intent-filter>

@@ -5,38 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imageView70"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/galeria_espaco_cultural_foto_14_1"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-123dp" />
-
-    <ImageView
-        android:id="@+id/imageView71"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/galeria_espaco_cultural_foto_1_1"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="55dp" />
-
-    <ImageView
-        android:id="@+id/imageView72"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/galeria_espaco_cultural_foto_3_1"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="254dp" />
-
-    <ImageView
-        android:id="@+id/imageView73"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/galeria_espaco_cultural_foto_4_1"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="492dp" />
-
     <ImageButton
         android:id="@+id/imageButton26"
         android:layout_width="80dp"
@@ -74,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="90dp"
         android:text="Add Work"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -84,12 +52,14 @@
         android:id="@+id/button19"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#FFFFFF"
+        android:backgroundTint="#AAA7A7"
         android:text="Add"
         android:textColor="#000000"
         android:textSize="25sp"
-        tools:layout_editor_absoluteX="163dp"
-        tools:layout_editor_absoluteY="621dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
     <EditText
         android:id="@+id/editTextText11"

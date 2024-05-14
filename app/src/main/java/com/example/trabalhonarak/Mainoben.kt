@@ -26,7 +26,7 @@ class Mainoben : AppCompatActivity() {
         startActivity(intent)
     }
     private fun TrocarTela1() {
-        val intent = Intent(this, Mainlobpt::class.java)
+        val intent = Intent(this, Mainobpt::class.java)
         startActivity(intent)
     }
 }

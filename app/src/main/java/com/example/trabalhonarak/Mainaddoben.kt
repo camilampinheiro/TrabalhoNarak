@@ -12,6 +12,7 @@ class Mainaddoben : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_mainaddoben)
+
         val button = findViewById<ImageButton>(R.id.imageButton25)
         val button1 = findViewById<ImageButton>(R.id.imageButton27)
         val button2 = findViewById<Button>(R.id.button18)
@@ -23,7 +24,7 @@ class Mainaddoben : AppCompatActivity() {
             TrocarTela1()
         }
         button2.setOnClickListener() {
-            TrocarTela1()
+            TrocarTela2()
         }
     }
 
@@ -33,12 +34,12 @@ class Mainaddoben : AppCompatActivity() {
     }
 
     private fun TrocarTela1() {
-        val intent1 = Intent(this, Mainlobpt::class.java)
+        val intent1 = Intent(this, Mainaddobpt::class.java)
         startActivity(intent1)
     }
 
     private fun TrocarTela2() {
-        val intent1 = Intent(this, Mainaddoben2::class.java)
-        startActivity(intent1)
+        val intent2 = Intent(this, Mainaddoben2::class.java)
+        startActivity(intent2)
     }
 }

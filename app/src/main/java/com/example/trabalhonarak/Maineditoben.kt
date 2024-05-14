@@ -12,6 +12,7 @@ class Maineditoben : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_maineditoben)
+
         val button = findViewById<ImageButton>(R.id.imageButton29)
         val button1 = findViewById<ImageButton>(R.id.imageButton30)
         val button2 = findViewById<Button>(R.id.button20)
@@ -28,17 +29,17 @@ class Maineditoben : AppCompatActivity() {
     }
 
     private fun TrocarTela() {
-        val intent = Intent(this, Mainoben::class.java)
+        val intent = Intent(this, Mainen::class.java)
         startActivity(intent)
     }
 
     private fun TrocarTela1() {
-        val intent1 = Intent(this, Mainlobpt::class.java)
+        val intent1 = Intent(this, Maineditobpt::class.java)
         startActivity(intent1)
     }
 
     private fun TrocarTela2() {
-        val intent1 = Intent(this, Maineditoben2::class.java)
-        startActivity(intent1)
+        val intent2 = Intent(this, Maineditoben2::class.java)
+        startActivity(intent2)
     }
 }

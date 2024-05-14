@@ -20,7 +20,6 @@ class Maineditobpt : AppCompatActivity() {
         button.setOnClickListener() {
             TrocarTela()
         }
-
         button1.setOnClickListener() {
             TrocarTela1()
         }
@@ -30,16 +29,17 @@ class Maineditobpt : AppCompatActivity() {
     }
 
     private fun TrocarTela() {
-        val intent = Intent(this, Mainoben::class.java)
+        val intent = Intent(this, Maineditoben::class.java)
         startActivity(intent)
     }
 
     private fun TrocarTela1() {
-        val intent = Intent(this, Mainoben::class.java)
-        startActivity(intent)
+        val intent1 = Intent(this, Mainpt::class.java)
+        startActivity(intent1)
     }
 
     private fun TrocarTela2(){
-        val intent = Intent(this, Maineditoben2::class.java)
+        val intent2 = Intent(this, Maineditobpt2::class.java)
+        startActivity(intent2)
     }
 }

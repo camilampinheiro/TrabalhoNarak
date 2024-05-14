@@ -24,22 +24,22 @@ class Mainaddobpt : AppCompatActivity() {
             TrocarTela1()
         }
         button2.setOnClickListener() {
-            TrocarTela1()
+            TrocarTela2()
         }
     }
 
     private fun TrocarTela() {
-        val intent = Intent(this, Mainlobpt::class.java)
+        val intent = Intent(this, Mainpt::class.java)
         startActivity(intent)
     }
 
     private fun TrocarTela1() {
-        val intent1 = Intent(this, Mainoben::class.java)
+        val intent1 = Intent(this, Mainaddoben::class.java)
         startActivity(intent1)
     }
 
     private fun TrocarTela2() {
-        val intent1 = Intent(this, Mainaddobpt2::class.java)
-        startActivity(intent1)
+        val intent2 = Intent(this, Mainaddobpt2::class.java)
+        startActivity(intent2)
     }
 }

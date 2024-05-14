@@ -3,21 +3,30 @@ package com.example.trabalhonarak
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-class MainActivity : AppCompatActivity() {
+class Mainpt : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_mainpt)
 
-        var btn:Button = findViewById(R.id.button)
+        val button = findViewById<Button>(R.id.button)
+        val button1 = findViewById<Button>(R.id.button2)
+        val button2 = findViewById<ImageButton>(R.id.imageButton)
 
-        btn.setOnClickListener(){
+        button.setOnClickListener(){
             TrocarTela()
+        }
+        button1.setOnClickListener(){
+            TrocarTela1()
+        }
+        button2.setOnClickListener(){
+            TrocarTela2()
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -27,7 +36,17 @@ class MainActivity : AppCompatActivity() {
         }
     }
     fun TrocarTela(){
-        var intent = Intent(this, Mainadobpt::class.java)
+        val intent = Intent(this, Mainadobpt::class.java)
         startActivity(intent)
+    }
+
+    fun TrocarTela1(){
+        val intent2 = Intent(this, Mainlogpt::class.java)
+        startActivity(intent2)
+    }
+
+    fun TrocarTela2(){
+        val intent2 = Intent(this, Mainen::class.java)
+        startActivity(intent2)
     }
 }

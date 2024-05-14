@@ -29,12 +29,16 @@ class Mainlogpt : AppCompatActivity() {
 
         val button = findViewById<ImageButton>(R.id.imageButton)
         val button1 = findViewById<Button>(R.id.button3)
+        val button2 = findViewById<ImageButton>(R.id.imageButton3)
 
         button.setOnClickListener {
             TrocarTela()
         }
         button1.setOnClickListener {
             TrocarTela1()
+        }
+        button2.setOnClickListener {
+            TrocarTela2()
         }
     }
 
@@ -68,8 +72,13 @@ class Mainlogpt : AppCompatActivity() {
     }
 
     private fun TrocarTela1() {
-        val intent1 = Intent(this, Mainlobpt::class.java)
+        val intent1 = Intent(this, Mainadmpt::class.java)
         startActivity(intent1)
+    }
+
+    private fun TrocarTela2() {
+        val intent2 = Intent(this, Mainpt::class.java)
+        startActivity(intent2)
     }
 
 }

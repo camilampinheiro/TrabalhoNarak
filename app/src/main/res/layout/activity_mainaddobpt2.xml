@@ -5,38 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imageView55"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/galeria_espaco_cultural_foto_14_1"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-120dp" />
-
-    <ImageView
-        android:id="@+id/imageView56"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/galeria_espaco_cultural_foto_1_1"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="65dp" />
-
-    <ImageView
-        android:id="@+id/imageView57"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/galeria_espaco_cultural_foto_3_1"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="251dp" />
-
-    <ImageView
-        android:id="@+id/imageView58"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/galeria_espaco_cultural_foto_4_1"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="495dp" />
-
     <ImageButton
         android:id="@+id/imageButton18"
         android:layout_width="80dp"
@@ -63,7 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="90dp"
         android:text="Adicionar Obra"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -74,19 +42,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="44dp"
-        android:backgroundTint="#FFFFFF"
+        android:backgroundTint="#AAA7A7"
         android:text="Adicionar"
         android:textColor="#000000"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="400dp"
         android:layout_height="400dp"
-        app:layout_constraintBottom_toTopOf="@+id/button15"
+        android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"

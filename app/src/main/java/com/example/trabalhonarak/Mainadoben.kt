@@ -24,13 +24,12 @@ class Mainadoben : AppCompatActivity() {
     }
 
     private fun TrocarTela() {
-        val intent = Intent(this, Mainoben::class.java)
+        val intent = Intent(this, Mainen::class.java)
         startActivity(intent)
     }
 
     private fun TrocarTela1() {
-        val intent1 = Intent(this, Mainlobpt::class.java)
+        val intent1 = Intent(this, Mainadobpt::class.java)
         startActivity(intent1)
-    }
     }
 }
