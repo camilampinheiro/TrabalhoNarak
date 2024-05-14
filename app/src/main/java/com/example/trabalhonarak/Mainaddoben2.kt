@@ -3,9 +3,11 @@ package com.example.trabalhonarak
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageButton
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.firestore.FirebaseFirestore
 
 class Mainaddoben2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,6 +18,7 @@ class Mainaddoben2 : AppCompatActivity() {
         val button = findViewById<ImageButton>(R.id.imageButton26)
         val button1 = findViewById<ImageButton>(R.id.imageButton28)
         val button2 = findViewById<Button>(R.id.button19)
+        val desc = findViewById<EditText>(R.id.editTextText11)
 
         button.setOnClickListener() {
             TrocarTela()
@@ -24,6 +27,11 @@ class Mainaddoben2 : AppCompatActivity() {
             TrocarTela1()
         }
         button2.setOnClickListener() {
+            FirebaseFirestore.getInstance().collection("obras").add(
+                mapOf(
+                    "desc" to desc.text.toString()
+                )
+            )
             TrocarTela2()
         }
     }

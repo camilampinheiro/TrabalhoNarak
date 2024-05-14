@@ -22,8 +22,8 @@ class Mainlogpt : AppCompatActivity() {
         mAuth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
 
-        val email = "usuario@example.com"
-        val password = "senhaSegura123"
+        val email = "usuario@gmail.com"
+        val password = "12345678"
 
         registerUser(email, password)
 

@@ -1,13 +1,13 @@
- {
+{
   "project_info": {
-    "project_number": "80162761195",
-    "project_id": "appnarak-c94b9",
-    "storage_bucket": "appnarak-c94b9.appspot.com"
+    "project_number": "158654543626",
+    "project_id": "appnarak-f76b4",
+    "storage_bucket": "appnarak-f76b4.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:80162761195:android:d309d9041c0e5a77e791ae",
+        "mobilesdk_app_id": "1:158654543626:android:3e2dfacbcea6fb626cacf3",
         "android_client_info": {
           "package_name": "com.example.trabalhonarak"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBNLwWsnfuaKNEPSPmDGJ2hB9q4Y5Xdeiw"
+          "current_key": "AIzaSyAm7V2TvWZpL49Y7_fI9dRc4iuPKdcrZGA"
         }
       ],
       "services": {
