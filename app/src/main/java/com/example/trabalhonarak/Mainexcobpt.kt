@@ -15,9 +15,9 @@ class Mainexcobpt : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_mainexcobpt)
 
-        val button = findViewById<Button>(R.id.button21)
-        val button1 = findViewById<ImageButton>(R.id.imageButton34)
-        val button2 = findViewById<ImageButton>(R.id.imageButton33)
+        val button = findViewById<Button>(R.id.button13)
+        val button1 = findViewById<ImageButton>(R.id.imageButton7)
+        val button2 = findViewById<ImageButton>(R.id.imageButton6)
 
         button.setOnClickListener(){
             TrocarTela()
@@ -30,7 +30,7 @@ class Mainexcobpt : AppCompatActivity() {
         }
     }
     private fun TrocarTela() {
-        val intent = Intent(this, Mainoben::class.java)
+        val intent = Intent(this, Mainadobpt::class.java)
         startActivity(intent)
     }
     private fun TrocarTela1() {
@@ -38,7 +38,7 @@ class Mainexcobpt : AppCompatActivity() {
         startActivity(intent)
     }
     private fun TrocarTela2() {
-        val intent = Intent(this, Mainoben::class.java)
+        val intent = Intent(this, Mainadobpt::class.java)
         startActivity(intent)
     }
 }

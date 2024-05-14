@@ -13,14 +13,22 @@ class Mainadobpt: AppCompatActivity() {
         setContentView(R.layout.activity_mainadobpt)
 
         var btn2:ImageButton = findViewById(R.id.imageButton3)
+        var button = findViewById<ImageButton>(R.id.imageButton8)
 
         btn2.setOnClickListener(){
-            TrocarTela2()
+            TrocarTela1()
+        }
+        button.setOnClickListener(){
+            TrocarTela()
         }
 
     }
-    fun TrocarTela2(){
-        var intent2 = Intent(this, Maineditobpt::class.java)
+    fun TrocarTela1(){
+        var intent2 = Intent(this, Mainlobpt::class.java)
+        startActivity(intent2)
+    }
+    fun TrocarTela(){
+        var intent2 = Intent(this, Mainoben::class.java)
         startActivity(intent2)
     }
 }

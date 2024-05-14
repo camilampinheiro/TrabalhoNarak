@@ -13,14 +13,22 @@ class Mainlogen : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_mainlogen)
         val button = findViewById<Button>(R.id.button10)
+        val button1 = findViewById<ImageButton>(R.id.imageButton12)
 
         button.setOnClickListener() {
             TrocarTela()
+        }
+        button1.setOnClickListener() {
+            TrocarTela1()
         }
     }
 
     private fun TrocarTela() {
         val intent = Intent(this, Mainoben::class.java)
+        startActivity(intent)
+    }
+    private fun TrocarTela1() {
+        val intent = Intent(this, Mainlogpt::class.java)
         startActivity(intent)
     }
 }

@@ -34,11 +34,11 @@ class Mainaddobpt2 : AppCompatActivity() {
     }
 
     private fun TrocarTela1() {
-        val intent1 = Intent(this, Mainoben::class.java)
+        val intent1 = Intent(this, Mainlobpt::class.java)
         startActivity(intent1)
     }
     private fun TrocarTela2() {
-        val intent1 = Intent(this, Mainoben::class.java)
+        val intent1 = Intent(this, Mainlobpt::class.java)
         startActivity(intent1)
     }
 }
