@@ -3,15 +3,14 @@ package com.example.trabalhonarak
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
 class Mainlogpt : AppCompatActivity() {
-    private lateinit var mAuth: FirebaseAuth
     private lateinit var db: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,39 +18,27 @@ class Mainlogpt : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_mainlogpt)
 
-        mAuth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
 
-        val email = "usuario@gmail.com"
-        val password = "12345678"
+        val registerButton = findViewById<ImageButton>(R.id.imageButton)
+        val loginButton = findViewById<Button>(R.id.button3)
+        val anotherButton = findViewById<ImageButton>(R.id.imageButton3)
 
-        registerUser(email, password)
-
-        val button = findViewById<ImageButton>(R.id.imageButton)
-        val button1 = findViewById<Button>(R.id.button3)
-        val button2 = findViewById<ImageButton>(R.id.imageButton3)
-
-        button.setOnClickListener {
-            TrocarTela()
+        registerButton.setOnClickListener {
+            registerUser()
         }
-        button1.setOnClickListener {
-            TrocarTela1()
+        loginButton.setOnClickListener {
+            login()
         }
-        button2.setOnClickListener {
+        anotherButton.setOnClickListener {
             TrocarTela2()
         }
     }
 
-    private fun registerUser(email: String, password: String) {
-        mAuth.createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    Toast.makeText(this, "User registered successfully.", Toast.LENGTH_SHORT).show()
-                    addUserToFirestore(email, password)
-                } else {
-                    Toast.makeText(this, "Authentication failed: ${task.exception?.message}", Toast.LENGTH_LONG).show()
-                }
-            }
+    private fun registerUser() {
+        val email = "usuario@gmail.com"
+        val password = "12345678"
+        addUserToFirestore(email, password)
     }
 
     private fun addUserToFirestore(email: String, password: String) {
@@ -63,6 +50,35 @@ class Mainlogpt : AppCompatActivity() {
             }
             .addOnFailureListener { e ->
                 Toast.makeText(this, "Error adding user to Firestore: ${e.message}", Toast.LENGTH_LONG).show()
+            }
+    }
+
+    private fun login() {
+        val emailEditText = findViewById<EditText>(R.id.editTextTextEmailAddress)
+        val passwordEditText = findViewById<EditText>(R.id.editTextTextPassword)
+
+        val email = emailEditText.text.toString()
+        val password = passwordEditText.text.toString()
+
+        if (email.isEmpty() || password.isEmpty()) {
+            Toast.makeText(this, "Please enter both email and password.", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        db.collection("login")
+            .whereEqualTo("email", email)
+            .whereEqualTo("password", password)
+            .get()
+            .addOnSuccessListener { documents ->
+                if (documents.isEmpty) {
+                    Toast.makeText(this, "Invalid email or password.", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "Login successful.", Toast.LENGTH_SHORT).show()
+                    TrocarTela1()
+                }
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(this, "Error logging in: ${e.message}", Toast.LENGTH_LONG).show()
             }
     }
 
@@ -80,5 +96,4 @@ class Mainlogpt : AppCompatActivity() {
         val intent2 = Intent(this, Mainpt::class.java)
         startActivity(intent2)
     }
-
 }
