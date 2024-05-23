@@ -3,6 +3,7 @@ package com.example.trabalhonarak
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageButton
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -25,6 +26,24 @@ class Mainlogen : AppCompatActivity() {
         }
         button2.setOnClickListener() {
             TrocarTela2()
+        }
+
+        val login = findViewById<EditText>(R.id.editTextTextEmailAddress4)
+        login.setOnFocusChangeListener { v, hasFocus ->
+            if (hasFocus) {
+                login.hint = ""
+            } else {
+                login.hint = "Email"
+            }
+        }
+
+        val senha = findViewById<EditText>(R.id.editTextTextPassword2)
+        senha.setOnFocusChangeListener { v, hasFocus ->
+            if (hasFocus) {
+                senha.hint = ""
+            } else {
+                senha.hint = "Password"
+            }
         }
     }
 

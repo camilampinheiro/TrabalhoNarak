@@ -3,6 +3,7 @@ package com.example.trabalhonarak
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageButton
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -25,6 +26,15 @@ class Mainexoben : AppCompatActivity() {
         }
         button2.setOnClickListener(){
             TrocarTela2()
+        }
+
+        val pesquisa = findViewById<EditText>(R.id.editTextText14)
+        pesquisa.setOnFocusChangeListener { v, hasFocus ->
+            if (hasFocus) {
+                pesquisa.hint = ""
+            } else {
+                pesquisa.hint = "Name of the work"
+            }
         }
     }
     private fun TrocarTela() {

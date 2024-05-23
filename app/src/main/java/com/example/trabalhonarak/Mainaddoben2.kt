@@ -34,6 +34,24 @@ class Mainaddoben2 : AppCompatActivity() {
             )
             TrocarTela2()
         }
+
+        val pesquisa = findViewById<EditText>(R.id.editTextText11)
+        pesquisa.setOnFocusChangeListener { v, hasFocus ->
+            if (hasFocus) {
+                pesquisa.hint = ""
+            } else {
+                pesquisa.hint = "Name of the work"
+            }
+        }
+
+        val pesquisa1 = findViewById<EditText>(R.id.editTextText5)
+        pesquisa1.setOnFocusChangeListener { v, hasFocus ->
+            if (hasFocus) {
+                pesquisa1.hint = ""
+            } else {
+                pesquisa1.hint = "Information about the work"
+            }
+        }
     }
 
     private fun TrocarTela() {

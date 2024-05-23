@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageButton
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -27,6 +28,15 @@ class Mainexobpt : AppCompatActivity() {
         }
         button2.setOnClickListener(){
             TrocarTela2()
+        }
+
+        val pesquisa = findViewById<EditText>(R.id.editTextText2)
+        pesquisa.setOnFocusChangeListener { v, hasFocus ->
+            if (hasFocus) {
+                pesquisa.hint = ""
+            } else {
+                pesquisa.hint = "Nome da Obra"
+            }
         }
     }
     private fun TrocarTela() {

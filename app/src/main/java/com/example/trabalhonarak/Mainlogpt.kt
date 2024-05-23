@@ -33,6 +33,24 @@ class Mainlogpt : AppCompatActivity() {
         anotherButton.setOnClickListener {
             TrocarTela2()
         }
+
+        val login = findViewById<EditText>(R.id.editTextTextEmailAddress)
+        login.setOnFocusChangeListener { v, hasFocus ->
+            if (hasFocus) {
+                login.hint = ""
+            } else {
+                login.hint = "Email"
+            }
+        }
+
+        val senha = findViewById<EditText>(R.id.editTextTextPassword)
+        senha.setOnFocusChangeListener { v, hasFocus ->
+            if (hasFocus) {
+                senha.hint = ""
+            } else {
+                senha.hint = "Senha"
+            }
+        }
     }
 
     private fun registerUser() {

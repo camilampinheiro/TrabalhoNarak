@@ -5,6 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/imagembackground" />
+
     <ImageButton
         android:id="@+id/imageButton13"
         android:layout_width="80dp"
@@ -31,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="112dp"
         android:text="Administration"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,7 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
-        android:backgroundTint="#AAA7A7"
+        android:backgroundTint="#FFFFFF"
         android:text="Add work"
         android:textColor="#000000"
         android:textSize="25sp"
@@ -55,7 +65,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
-        android:backgroundTint="#AAA7A7"
+        android:backgroundTint="#FFFFFF"
         android:text="Delete work"
         android:textColor="#000000"
         android:textSize="25sp"
@@ -68,7 +78,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
-        android:backgroundTint="#AAA7A7"
+        android:backgroundTint="#FFFFFF"
         android:text="Edit work"
         android:textColor="#000000"
         android:textSize="25sp"
