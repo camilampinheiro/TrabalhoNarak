@@ -50,3 +50,4 @@ class Mainpt : AppCompatActivity() {
         startActivity(intent2)
     }
 }
+//asdasdasda
