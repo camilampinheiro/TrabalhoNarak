@@ -41,8 +41,8 @@ class Mainpt : AppCompatActivity() {
     }
 
     fun TrocarTela1(){
-        val intent2 = Intent(this, Mainlogpt::class.java)
-        startActivity(intent2)
+        val intent1 = Intent(this, Mainlogpt::class.java)
+        startActivity(intent1)
     }
 
     fun TrocarTela2(){
