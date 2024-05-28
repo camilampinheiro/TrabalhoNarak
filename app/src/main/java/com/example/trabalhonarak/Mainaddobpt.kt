@@ -30,19 +30,28 @@ class Mainaddobpt : AppCompatActivity() {
 
         val nome = findViewById<EditText>(R.id.editTextText6)
         val button = findViewById<ImageButton>(R.id.imageButton4)
+        val button1 = findViewById<ImageButton>(R.id.imageButton11)
         val button2 = findViewById<Button>(R.id.button7)
         val imageView = findViewById<ImageView>(R.id.imageViewSelected)
 
         button.setOnClickListener {
             TrocarTela()
         }
+        button1.setOnClickListener{
+            TrocarTela1()
+        }
         button2.setOnClickListener {
-            FirebaseFirestore.getInstance().collection("obras").add(
-                mapOf(
+            if (filePath != null) {
+                val obra = hashMapOf(
                     "nome" to nome.text.toString()
                 )
-            )
-            TrocarTela2()
+                val documentReference = FirebaseFirestore.getInstance().collection("obras").document()
+                val id = documentReference.id
+                uploadFileToFirebaseStorage(filePath!!, "Obras/$id.jpg", "imageUrl", obra, id)
+                TrocarTela2()
+            } else {
+                Toast.makeText(this, "Selecione uma imagem primeiro", Toast.LENGTH_SHORT).show()
+            }
         }
 
         val pesquisa = findViewById<EditText>(R.id.editTextText6)
@@ -72,7 +81,7 @@ class Mainaddobpt : AppCompatActivity() {
                     try {
                         val imageStream: InputStream? = contentResolver.openInputStream(filePath!!)
                         val selectedImage = BitmapFactory.decodeStream(imageStream)
-                        findViewById<ImageView>(R.id.imageView).setImageBitmap(selectedImage)
+                        findViewById<ImageView>(R.id.imageViewSelected).setImageBitmap(selectedImage)
                     } catch (e: FileNotFoundException) {
                         e.printStackTrace()
                         Toast.makeText(this, "Erro ao carregar imagem", Toast.LENGTH_SHORT).show()
@@ -88,9 +97,10 @@ class Mainaddobpt : AppCompatActivity() {
             .addOnSuccessListener {
                 storageReference.downloadUrl.addOnSuccessListener { uri ->
                     obra[fieldName] = uri.toString()
-                    FirebaseFirestore.getInstance().collection("Obras").document(id).set(obra)
+                    FirebaseFirestore.getInstance().collection("obras").document(id).set(obra)
                         .addOnSuccessListener {
                             Log.d("Mainaddobpt", "Obra salva com sucesso com URL do $fieldName.")
+                            TrocarTela2()
                         }
                         .addOnFailureListener { e ->
                             Log.e("Mainaddobpt", "Erro ao salvar URL do $fieldName: $e")
@@ -107,7 +117,12 @@ class Mainaddobpt : AppCompatActivity() {
         startActivity(intent)
     }
 
+    private fun TrocarTela1() {
+        val intent1 = Intent(this, Mainadmpt::class.java)
+        startActivity(intent1)
+    }
     private fun TrocarTela2() {
+        Log.d("Mainaddobpt", "Trocando para tela Mainaddobpt2")
         val intent2 = Intent(this, Mainaddobpt2::class.java)
         startActivity(intent2)
     }

@@ -29,10 +29,14 @@ class Mainaddobpt2 : AppCompatActivity() {
         setContentView(R.layout.activity_mainaddobpt2)
 
         val desc = findViewById<EditText>(R.id.editTextText7)
+        val button = findViewById<ImageButton>(R.id.imageButton12)
         val button1 = findViewById<ImageButton>(R.id.imageButton18)
         val button2 = findViewById<Button>(R.id.button15)
         val imageView = findViewById<ImageView>(R.id.imageViewSelected)
 
+        button.setOnClickListener {
+            TrocarTela()
+        }
         button1.setOnClickListener {
             TrocarTela1()
         }
@@ -117,6 +121,10 @@ class Mainaddobpt2 : AppCompatActivity() {
             }
     }
 
+    private fun TrocarTela() {
+        val intent = Intent(this, Mainaddobpt::class.java)
+        startActivity(intent)
+    }
     private fun TrocarTela1() {
         val intent1 = Intent(this, Mainpt::class.java)
         startActivity(intent1)
