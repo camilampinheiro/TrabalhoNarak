@@ -2,19 +2,19 @@ package com.example.trabalhonarak
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
+import android.util.Base64
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.storage.FirebaseStorage
 import java.io.FileNotFoundException
 import java.io.InputStream
 
@@ -22,10 +22,10 @@ class Mainaddobpt : AppCompatActivity() {
 
     private val PICK_IMAGE_REQUEST = 1
     private var filePath: Uri? = null
+    private var imgEncoded: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_mainaddobpt)
 
         val nome = findViewById<EditText>(R.id.editTextText6)
@@ -37,16 +37,24 @@ class Mainaddobpt : AppCompatActivity() {
             TrocarTela()
         }
         button2.setOnClickListener {
-            FirebaseFirestore.getInstance().collection("obras").add(
-                mapOf(
-                    "nome" to nome.text.toString()
-                )
+            val obra = hashMapOf(
+                "nome" to nome.text.toString()
             )
-            TrocarTela2()
+            if (imgEncoded != null) {
+                obra["imageBase64"] = imgEncoded!!
+            }
+            FirebaseFirestore.getInstance().collection("obras").add(obra)
+                .addOnSuccessListener {
+                    Log.d("Mainaddobpt", "Obra salva com sucesso.")
+                    TrocarTela2()
+                }
+                .addOnFailureListener { e ->
+                    Log.e("Mainaddobpt", "Erro ao salvar obra: $e")
+                }
         }
 
         val pesquisa = findViewById<EditText>(R.id.editTextText6)
-        pesquisa.setOnFocusChangeListener { v, hasFocus ->
+        pesquisa.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
                 pesquisa.hint = ""
             } else {
@@ -71,7 +79,9 @@ class Mainaddobpt : AppCompatActivity() {
                     filePath = data.data
                     try {
                         val imageStream: InputStream? = contentResolver.openInputStream(filePath!!)
-                        val selectedImage = BitmapFactory.decodeStream(imageStream)
+                        imgEncoded = Base64.encodeToString(imageStream!!.readBytes(), Base64.DEFAULT)
+                        val decodedByteArray = Base64.decode(imgEncoded, Base64.DEFAULT)
+                        val selectedImage = BitmapFactory.decodeByteArray(decodedByteArray, 0, decodedByteArray.size)
                         findViewById<ImageView>(R.id.imageView).setImageBitmap(selectedImage)
                     } catch (e: FileNotFoundException) {
                         e.printStackTrace()
@@ -80,26 +90,6 @@ class Mainaddobpt : AppCompatActivity() {
                 }
             }
         }
-    }
-
-    private fun uploadFileToFirebaseStorage(filePath: Uri, storagePath: String, fieldName: String, obra: HashMap<String, String>, id: String) {
-        val storageReference = FirebaseStorage.getInstance().reference.child(storagePath)
-        storageReference.putFile(filePath)
-            .addOnSuccessListener {
-                storageReference.downloadUrl.addOnSuccessListener { uri ->
-                    obra[fieldName] = uri.toString()
-                    FirebaseFirestore.getInstance().collection("Obras").document(id).set(obra)
-                        .addOnSuccessListener {
-                            Log.d("Mainaddobpt", "Obra salva com sucesso com URL do $fieldName.")
-                        }
-                        .addOnFailureListener { e ->
-                            Log.e("Mainaddobpt", "Erro ao salvar URL do $fieldName: $e")
-                        }
-                }
-            }
-            .addOnFailureListener { e ->
-                Log.e("Mainaddobpt", "Erro ao fazer upload do $fieldName: $e")
-            }
     }
 
     private fun TrocarTela() {
