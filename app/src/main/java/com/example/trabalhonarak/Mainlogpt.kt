@@ -20,13 +20,9 @@ class Mainlogpt : AppCompatActivity() {
 
         db = FirebaseFirestore.getInstance()
 
-        val registerButton = findViewById<ImageButton>(R.id.imageButton)
         val loginButton = findViewById<Button>(R.id.button3)
         val anotherButton = findViewById<ImageButton>(R.id.imageButton3)
 
-        registerButton.setOnClickListener {
-            registerUser()
-        }
         loginButton.setOnClickListener {
             login()
         }
@@ -98,11 +94,6 @@ class Mainlogpt : AppCompatActivity() {
             .addOnFailureListener { e ->
                 Toast.makeText(this, "Error logging in: ${e.message}", Toast.LENGTH_LONG).show()
             }
-    }
-
-    private fun TrocarTela() {
-        val intent = Intent(this, Mainlogen::class.java)
-        startActivity(intent)
     }
 
     private fun TrocarTela1() {

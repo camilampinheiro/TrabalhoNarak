@@ -14,13 +14,9 @@ class Maineditobpt2 : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_maineditobpt2)
 
-        val button = findViewById<ImageButton>(R.id.imageButton22)
         val button1 = findViewById<ImageButton>(R.id.imageButton21)
         val button2 = findViewById<Button>(R.id.button17)
 
-        button.setOnClickListener(){
-            TrocarTela()
-        }
         button1.setOnClickListener(){
             TrocarTela1()
         }
@@ -46,10 +42,7 @@ class Maineditobpt2 : AppCompatActivity() {
             }
         }
     }
-    private fun TrocarTela() {
-        val intent = Intent(this, Maineditoben2::class.java)
-        startActivity(intent)
-    }
+
     private fun TrocarTela1() {
         val intent1 = Intent(this, Mainpt::class.java)
         startActivity(intent1)

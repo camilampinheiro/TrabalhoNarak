@@ -17,16 +17,12 @@ class Mainpt : AppCompatActivity() {
 
         val button = findViewById<Button>(R.id.button)
         val button1 = findViewById<Button>(R.id.button2)
-        val button2 = findViewById<ImageButton>(R.id.imageButton)
 
         button.setOnClickListener(){
             TrocarTela()
         }
         button1.setOnClickListener(){
             TrocarTela1()
-        }
-        button2.setOnClickListener(){
-            TrocarTela2()
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -44,10 +40,4 @@ class Mainpt : AppCompatActivity() {
         val intent1 = Intent(this, Mainlogpt::class.java)
         startActivity(intent1)
     }
-
-    fun TrocarTela2(){
-        val intent2 = Intent(this, Mainen::class.java)
-        startActivity(intent2)
-    }
 }
-//asdasda

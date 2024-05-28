@@ -25,22 +25,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/menu" />
 
-    <ImageButton
-        android:id="@+id/imageButton22"
-        android:layout_width="95dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/image_2" />
-
     <TextView
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="90dp"
-        android:text="Editar Obra"
+        android:text="@string/titEditarObra2"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -63,7 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#FFFFFF"
-        android:text="Editar"
+        android:text="@string/botaoEditar2"
         android:textColor="#000000"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -78,7 +68,7 @@
         android:layout_marginTop="128dp"
         android:ems="10"
         android:inputType="text"
-        android:hint="Nome da Obra"
+        android:hint="@string/editarNomeDaObra"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.251"
@@ -99,7 +89,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="text"
-        android:hint="Informação da Obra..."
+        android:hint="@string/editarInformacaoDaObra"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView53"
         app:layout_constraintEnd_toEndOf="parent"

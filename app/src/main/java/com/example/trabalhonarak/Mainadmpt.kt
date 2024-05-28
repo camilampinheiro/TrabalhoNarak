@@ -14,16 +14,12 @@ class Mainadmpt : AppCompatActivity() {
         setContentView(R.layout.activity_mainadmpt)
 
         val button = findViewById<ImageButton>(R.id.imageButton3)
-        val button1 = findViewById<ImageButton>(R.id.imageButton2)
         val button2 = findViewById<Button>(R.id.button4)
         val button3 = findViewById<Button>(R.id.button5)
         val button4 = findViewById<Button>(R.id.button6)
 
         button.setOnClickListener() {
             TrocarTela()
-        }
-        button1.setOnClickListener() {
-            TrocarTela1()
         }
         button2.setOnClickListener() {
             TrocarTela2()
@@ -39,11 +35,6 @@ class Mainadmpt : AppCompatActivity() {
     private fun TrocarTela() {
         val intent = Intent(this, Mainpt::class.java)
         startActivity(intent)
-    }
-
-    private fun TrocarTela1() {
-        val intent1 = Intent(this, Mainadmen::class.java)
-        startActivity(intent1)
     }
 
     private fun TrocarTela2() {

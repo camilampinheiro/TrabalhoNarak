@@ -1,3 +1,61 @@
 <resources>
     <string name="app_name">TrabalhoNarak</string>
+
+    //tela principal
+    <string name="titSistema">Sistema de Ajuda</string>
+    <string name="botaoAdOb">Audioguias e Obras</string>
+
+    //tela audioguias e obras
+    <string name="titAdOb">Audioguias e Obras</string>
+    <string name="pesquisaAdOb">Nome da Obra</string>
+    <string name="nomeObra">Noite Estrelada</string>
+
+    //tela obra
+    <string name="titObra">Obra</string>
+    <string name="informacaoMonalisa">Leonardo da Vinci, 1503-1517. A "Mona Lisa" é célebre pelo seu enigmático sorriso e a técnica de esfumato.</string>
+
+    //tela obra1
+    <string name="titObra1">Obra</string>
+    <string name="nomeNoite">Noite Estrelada</string>
+    <string name="informacaoNoite">Vincent van Gogh, 1889. "Noite Estrelada" destaca-se pelo céu dinâmico e uso expressivo de cores e pinceladas.</string>
+
+
+    //tela login adm
+    <string name="email">Email</string>
+    <string name="senha">Senha</string>
+    <string name="botaoLogin">Entrar</string>
+
+    //tela adm
+    <string name="titAdm">Administração</string>
+    <string name="botaoAdicionarObra">Adicionar Obra</string>
+    <string name="botaoExcluirObra">Excluir Obra</string>
+    <string name="botaoEditarObra">Editar Obra</string>
+
+    //tela add obra
+    <string name="titAdicionar">Adicionar Obra</string>
+    <string name="nomeDaObra">Nome da Obra</string>
+    <string name="botaoAdicionar">Adicionar</string>
+
+    //tela add obra2
+    <string name="titAdicionar2">Adicionar Obra</string>
+    <string name="nomeDaObra2">Nome da Obra</string>
+    <string name="informacaoDaObra2">Informação da Obra...</string>
+    <string name="botaoAdicionar2">Adicionar</string>
+
+    //tela excluir obra
+    <string name="titExcluirObra">Excluir Obra</string>
+    <string name="pesquisaExcluirObra">Nome da Obra</string>
+    <string name="botaoExcluir">Excluir</string>
+
+    //tela editar obra
+    <string name="titEditarObra">Editar Obra</string>
+    <string name="pesquisaEditarObra">Nome da Obra</string>
+    <string name="botaoEditar">Editar</string>
+
+    //tela editar obra2
+    <string name="titEditarObra2">Editar Obra</string>
+    <string name="editarNomeDaObra">Nome da Obra</string>
+    <string name="editarInformacaoDaObra">Informação da Obra...</string>
+    <string name="botaoEditar2">Editar</string>
+
 </resources>

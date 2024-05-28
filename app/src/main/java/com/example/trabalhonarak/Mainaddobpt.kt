@@ -30,15 +30,11 @@ class Mainaddobpt : AppCompatActivity() {
 
         val nome = findViewById<EditText>(R.id.editTextText6)
         val button = findViewById<ImageButton>(R.id.imageButton4)
-        val button1 = findViewById<ImageButton>(R.id.imageButton5)
         val button2 = findViewById<Button>(R.id.button7)
         val imageView = findViewById<ImageView>(R.id.imageViewSelected)
 
         button.setOnClickListener {
             TrocarTela()
-        }
-        button1.setOnClickListener {
-            TrocarTela1()
         }
         button2.setOnClickListener {
             FirebaseFirestore.getInstance().collection("obras").add(
@@ -109,11 +105,6 @@ class Mainaddobpt : AppCompatActivity() {
     private fun TrocarTela() {
         val intent = Intent(this, Mainpt::class.java)
         startActivity(intent)
-    }
-
-    private fun TrocarTela1() {
-        val intent1 = Intent(this, Mainaddoben::class.java)
-        startActivity(intent1)
     }
 
     private fun TrocarTela2() {
