@@ -17,10 +17,14 @@ class Mainexobpt : AppCompatActivity() {
         setContentView(R.layout.activity_mainexcobpt)
 
         val button = findViewById<Button>(R.id.button13)
+        val button1 = findViewById<ImageButton>(R.id.imageButton13)
         val button2 = findViewById<ImageButton>(R.id.imageButton6)
 
         button.setOnClickListener(){
             TrocarTela()
+        }
+        button1.setOnClickListener {
+            TrocarTela1()
         }
         button2.setOnClickListener(){
             TrocarTela2()
@@ -39,8 +43,12 @@ class Mainexobpt : AppCompatActivity() {
         val intent = Intent(this, Mainadmpt::class.java)
         startActivity(intent)
     }
+    private fun TrocarTela1() {
+        val intent1 = Intent(this, Mainadmpt::class.java)
+        startActivity(intent1)
+    }
     private fun TrocarTela2() {
-        val intent = Intent(this, Mainpt::class.java)
-        startActivity(intent)
+        val intent2 = Intent(this, Mainpt::class.java)
+        startActivity(intent2)
     }
 }
