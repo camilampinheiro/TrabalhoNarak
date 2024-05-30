@@ -134,5 +134,5 @@ class Mainaddobpt2 : AppCompatActivity() {
         val intent2 = Intent(this, Mainadmpt::class.java)
         startActivity(intent2)
     }
-    //me
+    // CastroChupaCU
 }
