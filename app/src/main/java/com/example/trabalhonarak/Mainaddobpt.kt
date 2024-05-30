@@ -23,6 +23,7 @@ class Mainaddobpt : AppCompatActivity() {
     private val PICK_IMAGE_REQUEST = 1
     private var filePath: Uri? = null
     private var imgEncoded: String? = null
+    private lateinit var imageViewSelected: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +32,7 @@ class Mainaddobpt : AppCompatActivity() {
         val nome = findViewById<EditText>(R.id.editTextText6)
         val button = findViewById<ImageButton>(R.id.imageButton4)
         val button2 = findViewById<Button>(R.id.button7)
-        val imageView = findViewById<ImageView>(R.id.imageViewSelected)
+        imageViewSelected = findViewById(R.id.imageViewSelected)
 
         button.setOnClickListener {
             TrocarTela()
@@ -62,7 +63,7 @@ class Mainaddobpt : AppCompatActivity() {
             }
         }
 
-        imageView.setOnClickListener {
+        imageViewSelected.setOnClickListener {
             val intent = Intent()
             intent.type = "image/*"
             intent.action = Intent.ACTION_GET_CONTENT
@@ -82,7 +83,7 @@ class Mainaddobpt : AppCompatActivity() {
                         imgEncoded = Base64.encodeToString(imageStream!!.readBytes(), Base64.DEFAULT)
                         val decodedByteArray = Base64.decode(imgEncoded, Base64.DEFAULT)
                         val selectedImage = BitmapFactory.decodeByteArray(decodedByteArray, 0, decodedByteArray.size)
-                        findViewById<ImageView>(R.id.imageView).setImageBitmap(selectedImage)
+                        imageViewSelected.setImageBitmap(selectedImage)
                     } catch (e: FileNotFoundException) {
                         e.printStackTrace()
                         Toast.makeText(this, "Erro ao carregar imagem", Toast.LENGTH_SHORT).show()
