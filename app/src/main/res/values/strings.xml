@@ -12,12 +12,12 @@
 
     //tela obra
     <string name="titObra">Obra</string>
-    <string name="informacaoMonalisa">Leonardo da Vinci, 1503-1517. A "Mona Lisa" é célebre pelo seu enigmático sorriso e a técnica de esfumato.</string>
+    <string name="informacaoMonalisa">Leonardo da Vinci, 1503-1517. A Mona Lisa é célebre pelo seu enigmático sorriso e a técnica de esfumato.</string>
 
     //tela obra1
     <string name="titObra1">Obra</string>
     <string name="nomeNoite">Noite Estrelada</string>
-    <string name="informacaoNoite">Vincent van Gogh, 1889. "Noite Estrelada" destaca-se pelo céu dinâmico e uso expressivo de cores e pinceladas.</string>
+    <string name="informacaoNoite">Vincent van Gogh, 1889. Noite Estrelada destaca-se pelo céu dinâmico e uso expressivo de cores e pinceladas.</string>
 
 
     //tela login adm
