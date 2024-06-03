@@ -24,7 +24,7 @@ class Maineditobpt : AppCompatActivity() {
         button1.setOnClickListener() {
             TrocarTela1()
         }
-        button2.setOnClickListener(){
+        button2.setOnClickListener() {
             TrocarTela2()
         }
 
@@ -47,9 +47,9 @@ class Maineditobpt : AppCompatActivity() {
         val intent1 = Intent(this, Mainpt::class.java)
         startActivity(intent1)
     }
-
-    private fun TrocarTela2(){
-        val intent2 = Intent(this, Maineditobpt2::class.java)
+    private fun TrocarTela2() {
+        val intent2 = Intent(this, Mainadmpt::class.java)
         startActivity(intent2)
     }
+
 }

@@ -9,16 +9,8 @@
     //tela audioguias e obras
     <string name="titAdOb">Audioguides and Works</string>
     <string name="pesquisaAdOb">Name of the Work</string>
-    <string name="nomeObra">Starry Night</string>
-
-    //tela obra
-    <string name="titObra">Work</string>
-    <string name="informacaoMonalisa">Leonardo da Vinci, 1503-1517. The "Mona Lisa" is renowned for its enigmatic smile and the sfumato technique.</string>
-
-    //tela obra1
-    <string name="titObra1">Work</string>
-    <string name="nomeNoite">Starry Night</string>
-    <string name="informacaoNoite">Vincent van Gogh, 1889. "Starry Night" is noted for its dynamic sky and expressive use of color and brushstrokes.</string>
+    <string name="monalisaObra">Mona Lisa painted between 1503 and 1506 by Leonardo da Vinci, is renowned for its enigmatic smile and the use of sfumato technique, which softens color transitions.</string>
+    <string name="noiteObra">The Starry Night, by Vincent van Gogh (1889), stands out for its expressive brushstrokes and vibrant colors, depicting a tumultuous star-filled sky.</string>
 
     //tela login adm
     <string name="email">Email</string>
@@ -33,14 +25,8 @@
 
     //tela add obra
     <string name="titAdicionar">Add Work</string>
-    <string name="nomeDaObra">Name of the Work</string>
+    <string name="nomeDaObra">Work...</string>
     <string name="botaoAdicionar">Add</string>
-
-    //tela add obra2
-    <string name="titAdicionar2">Add work</string>
-    <string name="nomeDaObra2">Name of the Work</string>
-    <string name="informacaoDaObra2">Information about the Work...</string>
-    <string name="botaoAdicionar2">Add</string>
 
     //tela excluir obra
     <string name="titExcluirObra">Delete Work</string>
@@ -51,11 +37,5 @@
     <string name="titEditarObra">Edit Work</string>
     <string name="pesquisaEditarObra">Name of the Work</string>
     <string name="botaoEditar">Edit</string>
-
-    //tela editar obra2
-    <string name="titEditarObra2">Edit Work</string>
-    <string name="editarNomeDaObra">Nome of the Work</string>
-    <string name="editarInformacaoDaObra">Information about the Work...</string>
-    <string name="botaoEditar2">Edit</string>
 
 </resources>

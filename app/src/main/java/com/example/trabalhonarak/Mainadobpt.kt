@@ -3,6 +3,7 @@ package com.example.trabalhonarak
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.speech.tts.TextToSpeech
 import android.util.Base64
 import android.util.Log
 import android.view.View
@@ -14,8 +15,9 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
+import java.util.*
 
-class Mainadobpt : AppCompatActivity() {
+class Mainadobpt : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     private lateinit var pesquisa: EditText
     private lateinit var imageView24: ImageView
@@ -28,6 +30,7 @@ class Mainadobpt : AppCompatActivity() {
     private lateinit var imageButton2: ImageButton
     private lateinit var imageButton: ImageButton
     private val db = FirebaseFirestore.getInstance()
+    private var tts: TextToSpeech? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,28 +40,24 @@ class Mainadobpt : AppCompatActivity() {
         imageButton = findViewById(R.id.imageButton)
         imageButton3 = findViewById(R.id.imageButton3)
         imageButton2 = findViewById(R.id.imageButton2)
-        imageView24 = findViewById(R.id.imageView24)
-        imageView25 = findViewById(R.id.imageView25)
+        pesquisa = findViewById(R.id.editTextText4)
+        textView19 = findViewById(R.id.textView19)
+        textView21 = findViewById(R.id.textView21)
         imageView26 = findViewById(R.id.imageView26)
         imageView27 = findViewById(R.id.imageView27)
-        pesquisa = findViewById(R.id.editTextText4)
-        textView19 = findViewById(R.id.textView19) // Nome da obra
-        textView21 = findViewById(R.id.textView21) // Descrição da obra
+
+        tts = TextToSpeech(this, this)
+
+        imageButton.setOnClickListener {
+            speakOut(textView19.text.toString())
+        }
+
+        imageButton2.setOnClickListener {
+            speakOut(textView21.text.toString())
+        }
 
         imageButton3.setOnClickListener {
             TrocarTela()
-        }
-        imageView24.setOnClickListener {
-            TrocarTela1()
-        }
-        imageView25.setOnClickListener {
-            TrocarTela2()
-        }
-        imageView27.setOnClickListener {
-            TrocarTela3()
-        }
-        imageView26.setOnClickListener {
-            TrocarTela4()
         }
 
         pesquisa.setOnFocusChangeListener { _, hasFocus ->
@@ -69,7 +68,6 @@ class Mainadobpt : AppCompatActivity() {
             }
         }
 
-        // Adicionar listener para buscar obra quando o usuário terminar de digitar
         pesquisa.setOnEditorActionListener { _, _, _ ->
             val nomeDaObra = pesquisa.text.toString()
             if (nomeDaObra.isNotEmpty()) {
@@ -79,6 +77,22 @@ class Mainadobpt : AppCompatActivity() {
             }
             true
         }
+    }
+
+    override fun onInit(status: Int) {
+        if (status == TextToSpeech.SUCCESS) {
+            val result = tts!!.setLanguage(Locale.US)
+
+            if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                Log.e("TTS", "The Language not supported!")
+            }
+        } else {
+            Log.e("TTS", "Initialization Failed!")
+        }
+    }
+
+    private fun speakOut(text: String) {
+        tts?.speak(text, TextToSpeech.QUEUE_FLUSH, null, "")
     }
 
     private fun buscarObra(nomeDaObra: String) {
@@ -93,7 +107,6 @@ class Mainadobpt : AppCompatActivity() {
                     for (document in documents) {
                         val obra = document.data
                         Log.d("Mainadobpt", "Obra encontrada: $obra")
-                        // Exibir as informações da obra
                         val descricao = obra["descricao"] as? String ?: "Sem descrição"
                         val imageBase64 = obra["imageBase64"] as? String
 
@@ -101,7 +114,6 @@ class Mainadobpt : AppCompatActivity() {
                         textView21.text = descricao
 
                         if (imageBase64 != null) {
-                            // Decodificar a imagem em Base64 e exibir
                             val decodedByteArray = Base64.decode(imageBase64, Base64.DEFAULT)
                             val bitmap = BitmapFactory.decodeByteArray(decodedByteArray, 0, decodedByteArray.size)
                             imageView24.setImageBitmap(bitmap)
@@ -109,10 +121,9 @@ class Mainadobpt : AppCompatActivity() {
                             imageView24.setImageResource(android.R.color.transparent)
                         }
 
-                        // Esconder componentes de exemplo
                         esconderExemplos()
 
-                        break // Supondo que estamos interessados apenas na primeira obra encontrada
+                        break
                     }
                 }
             }
@@ -137,20 +148,12 @@ class Mainadobpt : AppCompatActivity() {
         val intent = Intent(this, Mainpt::class.java)
         startActivity(intent)
     }
-    private fun TrocarTela1() {
-        val intent1 = Intent(this, Mainobpt::class.java)
-        startActivity(intent1)
-    }
-    private fun TrocarTela2() {
-        val intent2 = Intent(this, Mainob1::class.java)
-        startActivity(intent2)
-    }
-    private fun TrocarTela3() {
-        val intent3 = Intent(this, Mainobpt::class.java)
-        startActivity(intent3)
-    }
-    private fun TrocarTela4() {
-        val intent4 = Intent(this, Mainob1::class.java)
-        startActivity(intent4)
+
+    public override fun onDestroy() {
+        if (tts != null) {
+            tts!!.stop()
+            tts!!.shutdown()
+        }
+        super.onDestroy()
     }
 }

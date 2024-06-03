@@ -30,12 +30,16 @@ class Mainaddobpt : AppCompatActivity() {
         setContentView(R.layout.activity_mainaddobpt)
 
         val nome = findViewById<EditText>(R.id.editTextText6)
-        val button = findViewById<ImageButton>(R.id.imageButton4)
-        val button2 = findViewById<Button>(R.id.button7)
+        val button = findViewById<ImageButton>(R.id.imageButton4) //botao menu principal
+        val button1 = findViewById<ImageButton>(R.id.imageButton11) //botao de voltar
+        val button2 = findViewById<Button>(R.id.button7) //botao de adicionar
         imageViewSelected = findViewById(R.id.imageViewSelected)
 
         button.setOnClickListener {
             TrocarTela()
+        }
+        button1.setOnClickListener{
+            TrocarTela1()
         }
         button2.setOnClickListener {
             val obra = hashMapOf(
@@ -59,7 +63,7 @@ class Mainaddobpt : AppCompatActivity() {
             if (hasFocus) {
                 pesquisa.hint = ""
             } else {
-                pesquisa.hint = "Nome da Obra"
+                pesquisa.hint = "Obra..."
             }
         }
 
@@ -98,8 +102,13 @@ class Mainaddobpt : AppCompatActivity() {
         startActivity(intent)
     }
 
+    private fun TrocarTela1() {
+        val intent1 = Intent(this, Mainadmpt::class.java)
+        startActivity(intent1)
+    }
+
     private fun TrocarTela2() {
-        val intent2 = Intent(this, Mainaddobpt2::class.java)
+        val intent2 = Intent(this, Mainadmpt::class.java)
         startActivity(intent2)
     }
 }
