@@ -81,10 +81,13 @@ class Mainadobpt : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     override fun onInit(status: Int) {
         if (status == TextToSpeech.SUCCESS) {
-            val result = tts!!.setLanguage(Locale.US)
+            val locale = Locale.getDefault()
+            val result = tts!!.setLanguage(locale)
 
             if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
                 Log.e("TTS", "The Language not supported!")
+                // Tenta usar o inglês como fallback
+                tts!!.setLanguage(Locale.US)
             }
         } else {
             Log.e("TTS", "Initialization Failed!")
