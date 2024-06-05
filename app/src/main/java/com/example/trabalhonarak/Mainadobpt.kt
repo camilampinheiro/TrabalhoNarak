@@ -6,10 +6,12 @@ import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.util.Base64
 import android.util.Log
+import android.view.KeyEvent
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -20,15 +22,10 @@ import java.util.*
 class Mainadobpt : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     private lateinit var pesquisa: EditText
-    private lateinit var imageView24: ImageView
-    private lateinit var imageView25: ImageView
-    private lateinit var imageView26: ImageView
-    private lateinit var imageView27: ImageView
+    private lateinit var imageView2: ImageView
     private lateinit var textView19: TextView
-    private lateinit var textView21: TextView
-    private lateinit var imageButton3: ImageButton
-    private lateinit var imageButton2: ImageButton
     private lateinit var imageButton: ImageButton
+    private lateinit var imageButton3: ImageButton
     private val db = FirebaseFirestore.getInstance()
     private var tts: TextToSpeech? = null
 
@@ -37,23 +34,17 @@ class Mainadobpt : AppCompatActivity(), TextToSpeech.OnInitListener {
         enableEdgeToEdge()
         setContentView(R.layout.activity_mainadobpt)
 
+        // Inicializando as views
         imageButton = findViewById(R.id.imageButton)
         imageButton3 = findViewById(R.id.imageButton3)
-        imageButton2 = findViewById(R.id.imageButton2)
+        imageView2 = findViewById(R.id.imageView2)
         pesquisa = findViewById(R.id.editTextText4)
         textView19 = findViewById(R.id.textView19)
-        textView21 = findViewById(R.id.textView21)
-        imageView26 = findViewById(R.id.imageView26)
-        imageView27 = findViewById(R.id.imageView27)
 
         tts = TextToSpeech(this, this)
 
         imageButton.setOnClickListener {
             speakOut(textView19.text.toString())
-        }
-
-        imageButton2.setOnClickListener {
-            speakOut(textView21.text.toString())
         }
 
         imageButton3.setOnClickListener {
@@ -68,14 +59,18 @@ class Mainadobpt : AppCompatActivity(), TextToSpeech.OnInitListener {
             }
         }
 
-        pesquisa.setOnEditorActionListener { _, _, _ ->
-            val nomeDaObra = pesquisa.text.toString()
-            if (nomeDaObra.isNotEmpty()) {
-                buscarObra(nomeDaObra)
+        pesquisa.setOnKeyListener { _, keyCode, event ->
+            if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
+                val nomeDaObra = pesquisa.text.toString()
+                if (nomeDaObra.isNotEmpty()) {
+                    buscarObra(nomeDaObra)
+                } else {
+                    Toast.makeText(this, "Digite o nome da obra", Toast.LENGTH_SHORT).show()
+                }
+                true
             } else {
-                Toast.makeText(this, "Digite o nome da obra", Toast.LENGTH_SHORT).show()
+                false
             }
-            true
         }
     }
 
@@ -86,7 +81,6 @@ class Mainadobpt : AppCompatActivity(), TextToSpeech.OnInitListener {
 
             if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
                 Log.e("TTS", "The Language not supported!")
-                // Tenta usar o inglês como fallback
                 tts!!.setLanguage(Locale.US)
             }
         } else {
@@ -105,6 +99,7 @@ class Mainadobpt : AppCompatActivity(), TextToSpeech.OnInitListener {
             .get()
             .addOnSuccessListener { documents ->
                 if (documents.isEmpty) {
+                    Log.d("Mainadobpt", "Obra não encontrada")
                     Toast.makeText(this, "Obra não encontrada", Toast.LENGTH_SHORT).show()
                 } else {
                     for (document in documents) {
@@ -113,19 +108,18 @@ class Mainadobpt : AppCompatActivity(), TextToSpeech.OnInitListener {
                         val descricao = obra["descricao"] as? String ?: "Sem descrição"
                         val imageBase64 = obra["imageBase64"] as? String
 
-                        textView19.text = nomeDaObra
-                        textView21.text = descricao
+                        textView19.text = descricao
+                        textView19.setTextColor(resources.getColor(android.R.color.white)) // Mudar a cor do texto para branco
 
                         if (imageBase64 != null) {
                             val decodedByteArray = Base64.decode(imageBase64, Base64.DEFAULT)
                             val bitmap = BitmapFactory.decodeByteArray(decodedByteArray, 0, decodedByteArray.size)
-                            imageView24.setImageBitmap(bitmap)
+                            imageView2.setImageBitmap(bitmap)
                         } else {
-                            imageView24.setImageResource(android.R.color.transparent)
+                            imageView2.setImageResource(android.R.color.transparent)
                         }
 
-                        esconderExemplos()
-
+                        mostrarObra()
                         break
                     }
                 }
@@ -136,18 +130,27 @@ class Mainadobpt : AppCompatActivity(), TextToSpeech.OnInitListener {
             }
     }
 
-    private fun esconderExemplos() {
-        Log.d("Mainadobpt", "Escondendo exemplos")
-        imageView25.visibility = View.GONE
-        imageView26.visibility = View.GONE
-        imageView27.visibility = View.GONE
-        imageButton.visibility = View.GONE
-        imageButton2.visibility = View.GONE
+    private fun mostrarObra() {
+        Log.d("Mainadobpt", "Mostrando obra buscada")
+
+        // Esconder os elementos não necessários
+        findViewById<ImageView>(R.id.imageView26).visibility = View.GONE
+        findViewById<ImageView>(R.id.imageView27).visibility = View.GONE
+        findViewById<ImageButton>(R.id.imageButton2).visibility = View.GONE
+        findViewById<TextView>(R.id.textView21).visibility = View.GONE
+        findViewById<ImageView>(R.id.imageView14).visibility = View.GONE
+
+        // Exibir os elementos da obra encontrada
+        imageView2.visibility = View.VISIBLE
+        imageButton.visibility = View.VISIBLE
         textView19.visibility = View.VISIBLE
-        textView21.visibility = View.VISIBLE
+
+        Log.d("Mainadobpt", "Elementos visíveis: imageView2, imageButton, textView19")
+        Log.d("Mainadobpt", "Descrição: ${textView19.text}")
     }
 
     private fun TrocarTela() {
+        Log.d("Mainadobpt", "TrocarTela chamada")
         val intent = Intent(this, Mainpt::class.java)
         startActivity(intent)
     }
