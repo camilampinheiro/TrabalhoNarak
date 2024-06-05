@@ -38,6 +38,7 @@
 
     //tela editar obra
     <string name="titEditarObra">Edit Work</string>
+    <string name="pesquisaEditar">Name of the Work</string>
     <string name="pesquisaEditarNome">Name of the Work</string>
     <string name="pesquisaEditarSobre">About the Work...</string>
     <string name="botaoEditar">Edit</string>
