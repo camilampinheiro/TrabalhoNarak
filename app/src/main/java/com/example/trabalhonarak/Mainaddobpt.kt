@@ -63,7 +63,16 @@ class Mainaddobpt : AppCompatActivity() {
             if (hasFocus) {
                 pesquisa.hint = ""
             } else {
-                pesquisa.hint = "Obra..."
+                pesquisa.hint = getString(R.string.sobreObra)
+            }
+        }
+
+        val pesquisa1 = findViewById<EditText>(R.id.editTextText3)
+        pesquisa1.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) {
+                pesquisa1.hint = ""
+            } else {
+                pesquisa1.hint = getString(R.string.nomeDaObra)
             }
         }
 

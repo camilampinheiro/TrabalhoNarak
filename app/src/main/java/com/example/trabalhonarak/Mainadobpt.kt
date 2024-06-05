@@ -64,7 +64,7 @@ class Mainadobpt : AppCompatActivity(), TextToSpeech.OnInitListener {
             if (hasFocus) {
                 pesquisa.hint = ""
             } else {
-                pesquisa.hint = "Nome da Obra"
+                pesquisa.hint = getString(R.string.pesquisaAdOb)
             }
         }
 

@@ -28,14 +28,24 @@ class Maineditobpt : AppCompatActivity() {
             TrocarTela2()
         }
 
-        val pesquisa = findViewById<EditText>(R.id.editTextText)
+        val pesquisa = findViewById<EditText>(R.id.editTextText6)
         pesquisa.setOnFocusChangeListener { v, hasFocus ->
             if (hasFocus) {
                 pesquisa.hint = ""
             } else {
-                pesquisa.hint = "Nome da Obra"
+                pesquisa.hint = getString(R.string.sobreObra)
             }
         }
+
+        val pesquisa1 = findViewById<EditText>(R.id.editTextText5)
+        pesquisa1.setOnFocusChangeListener { v, hasFocus ->
+            if (hasFocus) {
+                pesquisa1.hint = ""
+            } else {
+                pesquisa1.hint = getString(R.string.nomeDaObra)
+            }
+        }
+
     }
 
     private fun TrocarTela() {
