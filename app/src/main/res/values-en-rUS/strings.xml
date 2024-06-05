@@ -9,8 +9,10 @@
     //tela audioguias e obras
     <string name="titAdOb">Audioguides and Works</string>
     <string name="pesquisaAdOb">Name of the Work</string>
-    <string name="monalisaObra">Mona Lisa painted between 1503 and 1506 by Leonardo da Vinci, is renowned for its enigmatic smile and the use of sfumato technique, which softens color transitions.</string>
-    <string name="noiteObra">The Starry Night, by Vincent van Gogh (1889), stands out for its expressive brushstrokes and vibrant colors, depicting a tumultuous star-filled sky.</string>
+    <string name="nomeMonalisa">Mona Lisa</string>
+    <string name="nomeNoite">Starry Night</string>
+    <string name="monalisaObra">Painted between 1503 and 1506 by Leonardo da Vinci, is renowned for its enigmatic smile and the use of sfumato technique, which softens color transitions.</string>
+    <string name="noiteObra">By Vincent van Gogh (1889), stands out for its expressive brushstrokes and vibrant colors, depicting a tumultuous star-filled sky.</string>
 
     //tela login adm
     <string name="email">Email</string>
@@ -25,7 +27,8 @@
 
     //tela add obra
     <string name="titAdicionar">Add Work</string>
-    <string name="nomeDaObra">Work...</string>
+    <string name="sobreObra">About the Work...</string>
+    <string name="nomeDaObra">Name of the Work...</string>
     <string name="botaoAdicionar">Add</string>
 
     //tela excluir obra
@@ -35,7 +38,9 @@
 
     //tela editar obra
     <string name="titEditarObra">Edit Work</string>
-    <string name="pesquisaEditarObra">Name of the Work</string>
+    <string name="pesquisaEditar">Name of the Work</string>
+    <string name="pesquisaEditarNome">Name of the Work</string>
+    <string name="pesquisaEditarSobre">About the Work...</string>
     <string name="botaoEditar">Edit</string>
 
 </resources>

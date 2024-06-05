@@ -35,7 +35,7 @@ class Mainlogpt : AppCompatActivity() {
             if (hasFocus) {
                 login.hint = ""
             } else {
-                login.hint = "Email"
+                login.hint = getString(R.string.email)
             }
         }
 
@@ -44,7 +44,7 @@ class Mainlogpt : AppCompatActivity() {
             if (hasFocus) {
                 senha.hint = ""
             } else {
-                senha.hint = "Senha"
+                senha.hint = getString(R.string.senha)
             }
         }
     }

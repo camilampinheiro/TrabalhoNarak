@@ -2,7 +2,6 @@ package com.example.trabalhonarak
 
 import android.app.Activity
 import android.content.Intent
-import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
@@ -30,6 +29,7 @@ class Mainaddobpt : AppCompatActivity() {
         setContentView(R.layout.activity_mainaddobpt)
 
         val nome = findViewById<EditText>(R.id.editTextText6)
+        val descricao = findViewById<EditText>(R.id.editTextText3) // Campo para descrição
         val button = findViewById<ImageButton>(R.id.imageButton4) //botao menu principal
         val button1 = findViewById<ImageButton>(R.id.imageButton11) //botao de voltar
         val button2 = findViewById<Button>(R.id.button7) //botao de adicionar
@@ -43,7 +43,8 @@ class Mainaddobpt : AppCompatActivity() {
         }
         button2.setOnClickListener {
             val obra = hashMapOf(
-                "nome" to nome.text.toString()
+                "nome" to nome.text.toString(),
+                "descricao" to descricao.text.toString()
             )
             if (imgEncoded != null) {
                 obra["imageBase64"] = imgEncoded!!
@@ -63,7 +64,16 @@ class Mainaddobpt : AppCompatActivity() {
             if (hasFocus) {
                 pesquisa.hint = ""
             } else {
-                pesquisa.hint = "Obra..."
+                pesquisa.hint = getString(R.string.sobreObra)
+            }
+        }
+
+        val pesquisa1 = findViewById<EditText>(R.id.editTextText3)
+        pesquisa1.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) {
+                pesquisa1.hint = ""
+            } else {
+                pesquisa1.hint = getString(R.string.nomeDaObra)
             }
         }
 

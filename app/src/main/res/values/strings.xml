@@ -8,8 +8,10 @@
     //tela audioguias e obras
     <string name="titAdOb">Audioguias e Obras</string>
     <string name="pesquisaAdOb">Nome da Obra</string>
-    <string name="monalisaObra">Mona Lisa pintada entre 1503 e 1506 por Leonardo da Vinci, é célebre pelo seu enigmático sorriso e a técnica de sfumato, que suaviza as transições de cor.</string>
-    <string name="noiteObra">A Noite Estrelada, de Vincent van Gogh (1889), destaca-se pelas pinceladas expressivas e cores intensas, retratando um céu estrelado e turbulento.</string>
+    <string name="nomeMonalisa">Mona Lisa</string>
+    <string name="nomeNoite">Noite Estrelada</string>
+    <string name="monalisaObra">Pintada entre 1503 e 1506 por Leonardo da Vinci, é célebre pelo seu enigmático sorriso e a técnica de sfumato, que suaviza as transições de cor.</string>
+    <string name="noiteObra">De Vincent van Gogh (1889), destaca-se pelas pinceladas expressivas e cores intensas, retratando um céu estrelado e turbulento.</string>
 
     //tela login adm
     <string name="email">Email</string>
@@ -24,7 +26,8 @@
 
     //tela add obra
     <string name="titAdicionar">Adicionar Obra</string>
-    <string name="nomeDaObra">Obra...</string>
+    <string name="sobreObra">Sobre a Obra...</string>
+    <string name="nomeDaObra">Nome da Obra</string>
     <string name="botaoAdicionar">Adicionar</string>
 
     //tela excluir obra
@@ -34,7 +37,9 @@
 
     //tela editar obra
     <string name="titEditarObra">Editar Obra</string>
-    <string name="pesquisaEditarObra">Nome da Obra</string>
+    <string name="pesquisaEditar">Nome da Obra</string>
+    <string name="pesquisaEditarNome">Nome da Obra</string>
+    <string name="pesquisaEditarSobre">Sobre a Obra...</string>
     <string name="botaoEditar">Editar</string>
 
 

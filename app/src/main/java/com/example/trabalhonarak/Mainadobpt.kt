@@ -29,6 +29,8 @@ class Mainadobpt : AppCompatActivity(), TextToSpeech.OnInitListener {
     private val db = FirebaseFirestore.getInstance()
     private var tts: TextToSpeech? = null
 
+    //asadasdasd
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -55,7 +57,7 @@ class Mainadobpt : AppCompatActivity(), TextToSpeech.OnInitListener {
             if (hasFocus) {
                 pesquisa.hint = ""
             } else {
-                pesquisa.hint = "Nome da Obra"
+                pesquisa.hint = getString(R.string.pesquisaAdOb)
             }
         }
 
