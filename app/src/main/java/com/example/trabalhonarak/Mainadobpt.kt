@@ -16,7 +16,11 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import java.util.*
 
 class Mainadobpt : AppCompatActivity(), TextToSpeech.OnInitListener {
@@ -28,19 +32,18 @@ class Mainadobpt : AppCompatActivity(), TextToSpeech.OnInitListener {
     private lateinit var imageButton3: ImageButton
     private val db = FirebaseFirestore.getInstance()
     private var tts: TextToSpeech? = null
-
+    private lateinit var rv:RecyclerView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_mainadobpt)
+        setContentView(R.layout.act_rv)
 
         // Inicializando as views
-        imageButton = findViewById(R.id.imageButton)
-        imageButton3 = findViewById(R.id.imageButton3)
-        imageView2 = findViewById(R.id.imageView2)
-        pesquisa = findViewById(R.id.editTextText4)
-        textView19 = findViewById(R.id.textView19)
+        rv = findViewById(R.id.rv)
+        rv.layoutManager = LinearLayoutManager(this)
 
+        Firebase.firestore.collection("obras").get()
+        //rv.adapter = receber um Arraylist de obras
         tts = TextToSpeech(this, this)
 
         imageButton.setOnClickListener {
@@ -130,24 +133,24 @@ class Mainadobpt : AppCompatActivity(), TextToSpeech.OnInitListener {
             }
     }
 
-    private fun mostrarObra() {
-        Log.d("Mainadobpt", "Mostrando obra buscada")
-
-        // Esconder os elementos não necessários
-        findViewById<ImageView>(R.id.imageView26).visibility = View.GONE
-        findViewById<ImageView>(R.id.imageView27).visibility = View.GONE
-        findViewById<ImageButton>(R.id.imageButton2).visibility = View.GONE
-        findViewById<TextView>(R.id.textView21).visibility = View.GONE
-        findViewById<ImageView>(R.id.imageView14).visibility = View.GONE
-
-        // Exibir os elementos da obra encontrada
-        imageView2.visibility = View.VISIBLE
-        imageButton.visibility = View.VISIBLE
-        textView19.visibility = View.VISIBLE
-
-        Log.d("Mainadobpt", "Elementos visíveis: imageView2, imageButton, textView19")
-        Log.d("Mainadobpt", "Descrição: ${textView19.text}")
-    }
+//    private fun mostrarObra() {
+//        Log.d("Mainadobpt", "Mostrando obra buscada")
+//
+//        // Esconder os elementos não necessários
+//        findViewById<ImageView>(R.id.imageView26).visibility = View.GONE
+//        findViewById<ImageView>(R.id.imageView27).visibility = View.GONE
+//        findViewById<ImageButton>(R.id.imageButton2).visibility = View.GONE
+//        findViewById<TextView>(R.id.textView21).visibility = View.GONE
+//        findViewById<ImageView>(R.id.imageView14).visibility = View.GONE
+//
+//        // Exibir os elementos da obra encontrada
+//        imageView2.visibility = View.VISIBLE
+//        imageButton.visibility = View.VISIBLE
+//        textView19.visibility = View.VISIBLE
+//
+//        Log.d("Mainadobpt", "Elementos visíveis: imageView2, imageButton, textView19")
+//        Log.d("Mainadobpt", "Descrição: ${textView19.text}")
+//    }
 
     private fun TrocarTela() {
         Log.d("Mainadobpt", "TrocarTela chamada")
