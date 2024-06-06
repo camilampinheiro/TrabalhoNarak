@@ -121,7 +121,7 @@ class Mainadobpt : AppCompatActivity(), TextToSpeech.OnInitListener {
                         } else {
                             imageView2.setImageResource(android.R.color.transparent)
                         }
-
+//aa
                         mostrarObra()
                         break
                     }
