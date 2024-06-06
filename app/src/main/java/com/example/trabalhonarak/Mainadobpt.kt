@@ -24,8 +24,10 @@ class Mainadobpt : AppCompatActivity(), TextToSpeech.OnInitListener {
     private lateinit var pesquisa: EditText
     private lateinit var imageView2: ImageView
     private lateinit var textView19: TextView
+    private lateinit var textView21: TextView
     private lateinit var imageButton: ImageButton
     private lateinit var imageButton3: ImageButton
+    private lateinit var imageButton2: ImageButton
     private val db = FirebaseFirestore.getInstance()
     private var tts: TextToSpeech? = null
 
@@ -37,14 +39,21 @@ class Mainadobpt : AppCompatActivity(), TextToSpeech.OnInitListener {
         // Inicializando as views
         imageButton = findViewById(R.id.imageButton)
         imageButton3 = findViewById(R.id.imageButton3)
+        imageButton2 = findViewById(R.id.imageButton2)
         imageView2 = findViewById(R.id.imageView2)
         pesquisa = findViewById(R.id.editTextText4)
         textView19 = findViewById(R.id.textView19)
+        textView21 = findViewById(R.id.textView21)
+
 
         tts = TextToSpeech(this, this)
 
         imageButton.setOnClickListener {
             speakOut(textView19.text.toString())
+        }
+
+        imageButton2.setOnClickListener {
+            speakOut(textView21.text.toString())
         }
 
         imageButton3.setOnClickListener {
