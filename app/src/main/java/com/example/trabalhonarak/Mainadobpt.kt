@@ -29,8 +29,6 @@ class Mainadobpt : AppCompatActivity(), TextToSpeech.OnInitListener {
     private val db = FirebaseFirestore.getInstance()
     private var tts: TextToSpeech? = null
 
-    //asadasdasd
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
