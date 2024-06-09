@@ -28,8 +28,10 @@ class Mainadobpt : AppCompatActivity(), TextToSpeech.OnInitListener {
     private lateinit var pesquisa: EditText
     private lateinit var imageView2: ImageView
     private lateinit var textView19: TextView
+    private lateinit var textView21: TextView
     private lateinit var imageButton: ImageButton
     private lateinit var imageButton3: ImageButton
+    private lateinit var imageButton2: ImageButton
     private val db = FirebaseFirestore.getInstance()
     private var tts: TextToSpeech? = null
     private lateinit var rv:RecyclerView
@@ -48,6 +50,10 @@ class Mainadobpt : AppCompatActivity(), TextToSpeech.OnInitListener {
 
         imageButton.setOnClickListener {
             speakOut(textView19.text.toString())
+        }
+
+        imageButton2.setOnClickListener {
+            speakOut(textView21.text.toString())
         }
 
         imageButton3.setOnClickListener {
