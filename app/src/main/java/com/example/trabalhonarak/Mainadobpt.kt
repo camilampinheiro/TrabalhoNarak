@@ -41,13 +41,14 @@ class Mainadobpt : AppCompatActivity(), TextToSpeech.OnInitListener {
         // Inicializando as views
         rv = findViewById(R.id.rv)
         rv.layoutManager = LinearLayoutManager(this)
-        adapter = MyAdapter(obras)
+
+        tts = TextToSpeech(this, this)
+
+        adapter = MyAdapter(obras, tts!!)
         rv.adapter = adapter
 
         pesquisa = findViewById(R.id.editTextText4)
         imageButton3 = findViewById(R.id.imageButton3)
-
-        tts = TextToSpeech(this, this)
 
         imageButton3.setOnClickListener {
             TrocarTela()
