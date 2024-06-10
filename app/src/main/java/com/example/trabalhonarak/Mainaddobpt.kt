@@ -28,8 +28,8 @@ class Mainaddobpt : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mainaddobpt)
 
-        val nome = findViewById<EditText>(R.id.editTextText6)
-        val descricao = findViewById<EditText>(R.id.editTextText3) // Campo para descrição
+        val nome = findViewById<EditText>(R.id.editTextText3)
+        val descricao = findViewById<EditText>(R.id.editTextText6) // Campo para descrição
         val button = findViewById<ImageButton>(R.id.imageButton4) //botao menu principal
         val button1 = findViewById<ImageButton>(R.id.imageButton11) //botao de voltar
         val button2 = findViewById<Button>(R.id.button7) //botao de adicionar

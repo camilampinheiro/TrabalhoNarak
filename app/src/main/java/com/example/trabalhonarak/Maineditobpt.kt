@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.util.Base64
 import android.util.Log
 import android.view.KeyEvent
-import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Toast
@@ -34,7 +33,7 @@ class Maineditobpt : AppCompatActivity() {
         // Inicializando as views
         rv = findViewById(R.id.rv)
         rv.layoutManager = LinearLayoutManager(this)
-        adapter = EditAdapter(obras)
+        adapter = EditAdapter(obras, this)
         rv.adapter = adapter
 
         pesquisa = findViewById(R.id.editTextText)
@@ -90,8 +89,6 @@ class Maineditobpt : AppCompatActivity() {
                         val nome = obraData["nome"] as? String ?: "Sem nome"
 
                         val obra = if (imageBase64 != null) {
-                            val decodedByteArray = Base64.decode(imageBase64, Base64.DEFAULT)
-                            val bitmap = BitmapFactory.decodeByteArray(decodedByteArray, 0, decodedByteArray.size)
                             Obra(nome, imageBase64, descricao)
                         } else {
                             Obra(nome, "", descricao)
