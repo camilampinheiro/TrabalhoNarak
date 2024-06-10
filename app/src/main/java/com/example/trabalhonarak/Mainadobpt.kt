@@ -1,18 +1,13 @@
 package com.example.trabalhonarak
 
+import android.annotation.SuppressLint
 import android.content.Intent
-import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
-import android.util.Base64
 import android.util.Log
 import android.view.KeyEvent
-import android.view.View
 import android.widget.EditText
 import android.widget.ImageButton
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -21,20 +16,23 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
 import java.util.*
 
 class Mainadobpt : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     private lateinit var pesquisa: EditText
-    private lateinit var imageView2: ImageView
-    private lateinit var textView19: TextView
-    private lateinit var textView21: TextView
-    private lateinit var imageButton: ImageButton
     private lateinit var imageButton3: ImageButton
-    private lateinit var imageButton2: ImageButton
+    private lateinit var rv: RecyclerView
     private val db = FirebaseFirestore.getInstance()
     private var tts: TextToSpeech? = null
-    private lateinit var rv:RecyclerView
+    private val obras = ArrayList<Obra>()
+    private lateinit var adapter: MyAdapter
+
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -43,18 +41,13 @@ class Mainadobpt : AppCompatActivity(), TextToSpeech.OnInitListener {
         // Inicializando as views
         rv = findViewById(R.id.rv)
         rv.layoutManager = LinearLayoutManager(this)
+        adapter = MyAdapter(obras)
+        rv.adapter = adapter
 
-        Firebase.firestore.collection("obras").get()
-        //rv.adapter = receber um Arraylist de obras
+        pesquisa = findViewById(R.id.editTextText4)
+        imageButton3 = findViewById(R.id.imageButton3)
+
         tts = TextToSpeech(this, this)
-
-        imageButton.setOnClickListener {
-            speakOut(textView19.text.toString())
-        }
-
-        imageButton2.setOnClickListener {
-            speakOut(textView21.text.toString())
-        }
 
         imageButton3.setOnClickListener {
             TrocarTela()
@@ -97,66 +90,41 @@ class Mainadobpt : AppCompatActivity(), TextToSpeech.OnInitListener {
         }
     }
 
-    private fun speakOut(text: String) {
-        tts?.speak(text, TextToSpeech.QUEUE_FLUSH, null, "")
-    }
-
     private fun buscarObra(nomeDaObra: String) {
         Log.d("Mainadobpt", "Buscando obra: $nomeDaObra")
-        db.collection("obras")
-            .whereEqualTo("nome", nomeDaObra)
-            .get()
-            .addOnSuccessListener { documents ->
-                if (documents.isEmpty) {
+        CoroutineScope(Dispatchers.Main).launch {
+            try {
+                val querySnapshot = db.collection("obras")
+                    .whereEqualTo("nome", nomeDaObra)
+                    .get()
+                    .await()
+
+                obras.clear()
+                if (querySnapshot.isEmpty) {
                     Log.d("Mainadobpt", "Obra não encontrada")
-                    Toast.makeText(this, "Obra não encontrada", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@Mainadobpt, "Obra não encontrada", Toast.LENGTH_SHORT).show()
                 } else {
-                    for (document in documents) {
-                        val obra = document.data
-                        Log.d("Mainadobpt", "Obra encontrada: $obra")
-                        val descricao = obra["descricao"] as? String ?: "Sem descrição"
-                        val imageBase64 = obra["imageBase64"] as? String
+                    for (document in querySnapshot.documents) {
+                        val obraData = document.data
+                        val descricao = obraData?.get("descricao") as? String ?: "Sem descrição"
+                        val imageBase64 = obraData?.get("imageBase64") as? String
+                        val nome = obraData?.get("nome") as? String ?: "Sem nome"
 
-                        textView19.text = descricao
-                        textView19.setTextColor(resources.getColor(android.R.color.white)) // Mudar a cor do texto para branco
-
-                        if (imageBase64 != null) {
-                            val decodedByteArray = Base64.decode(imageBase64, Base64.DEFAULT)
-                            val bitmap = BitmapFactory.decodeByteArray(decodedByteArray, 0, decodedByteArray.size)
-                            imageView2.setImageBitmap(bitmap)
+                        val obra = if (imageBase64 != null) {
+                            Obra(nome, imageBase64, descricao)
                         } else {
-                            imageView2.setImageResource(android.R.color.transparent)
+                            Obra(nome, "", descricao)
                         }
-//aa
-                        mostrarObra()
-                        break
+                        obras.add(obra)
                     }
+                    adapter.notifyDataSetChanged()
                 }
+            } catch (e: Exception) {
+                Log.e("Mainadobpt", "Erro ao buscar obra: ", e)
+                Toast.makeText(this@Mainadobpt, "Erro ao buscar obra", Toast.LENGTH_SHORT).show()
             }
-            .addOnFailureListener { exception ->
-                Log.e("Mainadobpt", "Erro ao buscar obra: ", exception)
-                Toast.makeText(this, "Erro ao buscar obra", Toast.LENGTH_SHORT).show()
-            }
+        }
     }
-
-//    private fun mostrarObra() {
-//        Log.d("Mainadobpt", "Mostrando obra buscada")
-//
-//        // Esconder os elementos não necessários
-//        findViewById<ImageView>(R.id.imageView26).visibility = View.GONE
-//        findViewById<ImageView>(R.id.imageView27).visibility = View.GONE
-//        findViewById<ImageButton>(R.id.imageButton2).visibility = View.GONE
-//        findViewById<TextView>(R.id.textView21).visibility = View.GONE
-//        findViewById<ImageView>(R.id.imageView14).visibility = View.GONE
-//
-//        // Exibir os elementos da obra encontrada
-//        imageView2.visibility = View.VISIBLE
-//        imageButton.visibility = View.VISIBLE
-//        textView19.visibility = View.VISIBLE
-//
-//        Log.d("Mainadobpt", "Elementos visíveis: imageView2, imageButton, textView19")
-//        Log.d("Mainadobpt", "Descrição: ${textView19.text}")
-//    }
 
     private fun TrocarTela() {
         Log.d("Mainadobpt", "TrocarTela chamada")
